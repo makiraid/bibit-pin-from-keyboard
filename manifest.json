@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Bibit PIN From Keyboard",
+  "version": "1.0",
+  "description": "Enter your Bibit.id PIN using the keyboard in the browser.",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["https://app.bibit.id/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
