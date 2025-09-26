@@ -35,12 +35,15 @@ A Chrome extension that allows users to enter Bibit.id PIN using the keyboard in
    - Open your browser and go to Bibit.id.
 2. Enter Your PIN:
    - Use your keyboard to type in your PIN. The extension will automatically simulate clicks on the corresponding numeric buttons.
-3. **Delete/Backspace Functionality:**
+3. **Submit:**
+   - Press Enter or Return on your keyboard to submit your PIN.
+4. **Delete/Backspace Functionality:**
    - Press Backspace or Delete on your keyboard to remove the last digit or clear the input.
 
 ## Features
 
 1. Enter your Bibit.id PIN using keyboard inputs.
+2. Press Enter or Return to submit your PIN.
 2. Automatically click the corresponding numeric buttons.
 3. Supports deleting or backspacing the input.
 

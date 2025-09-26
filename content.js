@@ -1,29 +1,31 @@
 'use strict'
 
-function handleNumericInput() {
-	document.addEventListener('keydown', ({ key }) => {
-		const targetElement = document.querySelector('.bit-container-padding-horizontal.bit-link-new-pin-container')
-		if (!targetElement) return
+/**
+ * This script adds keyboard controls to an on-screen PIN pad.
+ * - Digits 0-9 for number input.
+ * - Enter to submit.
+ * - Backspace/Delete to clear the last digit.
+ */
+function handlePinPadInput(event) {
+  const key = event.key;
 
-		const isNumKey = /^\d$/.test(key) // 0-9
-		const isDelKey = ['Backspace', 'Delete'].includes(key)
+  if (key >= '0' && key <= '9') {
+    const numButton = document.querySelector(`[data-testid="num-${key}"]`);
+    if (numButton) numButton.click();
+    return;
+  }
 
-		// Create a mapping for button selectors
-		const buttonSelectors = {
-			num: `[data-testid="num-${key}"]`,
-			delete: '[data-testid="delete-pin"]',
-		}
+  if (key === 'Enter') {
+    const submitButton = document.querySelector('button[data-content="Lanjut"]');
+    if (submitButton) submitButton.click();
+    return;
+  }
 
-		if (isNumKey) clickButton(buttonSelectors.num)
-
-		if (isDelKey) clickButton(buttonSelectors.delete)
-	})
+  if (key === 'Backspace' || key === 'Delete') {
+    const deleteButton = document.querySelector('[data-testid="delete-pin"]');
+    if (deleteButton) deleteButton.click();
+    return;
+  }
 }
 
-function clickButton(selector) {
-	const button = document.querySelector(selector)
-
-	if (button) button.click()
-}
-
-handleNumericInput()
+document.addEventListener('keydown', handlePinPadInput);
